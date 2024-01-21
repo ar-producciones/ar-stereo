@@ -21,7 +21,7 @@ export default {
 </script>
 <template>
   <Layout>
-    <section id="home" class="h-screen bg-black overflow-hidden relative h-auto">
+    <section id="" class=" bg-black overflow-hidden relative">
       <div class="bg-black-light flex justify-center text-white">
         <div class="py-2 flex items-center">
           <img :src="tv" alt="ar-tv" width="250" height="250" />
@@ -31,9 +31,8 @@ export default {
         </div>
       </div>
     </section>
-    <section id="home" class="h-screen bg-black overflow-hidden relative h-100">
-      
-      <div class="flex justify-center py-8 my-4 h-100">
+    <section id="home" class="h-screen bg-black overflow-hidden relative">
+      <div class="flex justify-center py-8 my-2 h-100">
         <figure class="flex-col">
           <img src="../../assets/img/banner.svg" alt="ar-stereo" width="600" />
           <audio controls class="rounded-md bg-gray-100 w-[600px]">
