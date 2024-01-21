@@ -4,6 +4,7 @@ import Layout from "../../components/Layout.vue";
 const banner = require("../../assets/img/banner.jpg");
 const tvDigital = require("../../assets/img/tv-digital.png");
 const notiAr = require("../../assets/img/noti-ar.png");
+const alfredoRojas = require("../../assets/img/alfredo-rojas.png");
 export default {
   name: "HomeComponent",
   components: { Layout },
@@ -12,6 +13,7 @@ export default {
       banner,
       tv: tvDigital,
       notiAr,
+      alfredoRojas
     };
   },
   methods: {},
@@ -22,10 +24,28 @@ export default {
     <section id="" class="bg-black overflow-hidden relative">
       <div class="bg-black-light flex justify-center text-white">
         <div class="py-2 flex items-center mx-2">
-          <img class="w-[150px] lg:w-[250px]" :src="tv" alt="ar-tv" height="250" />
+          <img
+            class="w-[100px] lg:w-[250px]"
+            :src="alfredoRojas"
+            alt="alfredo-rojas"
+            height="250"
+          />
         </div>
         <div class="py-2 flex items-center mx-2">
-          <img class="w-[150px] lg:w-[250px]" :src="notiAr" alt="ar-tv" height="250" />
+          <img
+            class="w-[100px] lg:w-[250px]"
+            :src="tv"
+            alt="ar-tv"
+            height="250"
+          />
+        </div>
+        <div class="py-2 flex items-center mx-2">
+          <img
+            class="w-[100px] lg:w-[250px]"
+            :src="notiAr"
+            alt="ar-tv"
+            height="250"
+          />
         </div>
       </div>
     </section>
