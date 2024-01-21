@@ -4,7 +4,7 @@
     >
       <div class="py-4 flex items-center">
         <img :src="logo" alt="alfredo-rojas" width="150" height="200" />
-        <h4 class="font-montserrat font-semibold" >AR Stereo</h4>
+        <h4 class="font-montserrat font-semibold hidden lg:mx-2 lg:flex" >AR Stereo</h4>
       </div>
       <div class="flex">
         <div class="uppercase" v-for="item in menuItems" :key="item.id">
@@ -16,7 +16,7 @@
     </div>
   </template>
   <script>
-  const logo = require('../assets/img/logo.png');
+  const logo = require('../assets/img/banner.jpg');
   
   export default {
     name: 'HeaderComponent',
