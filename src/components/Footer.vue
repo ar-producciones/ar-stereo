@@ -39,26 +39,34 @@
             /></a>
           </li>
         </ul>
+        <ul class="m-2">
+          <li>
+            <a href="#">
+              <BIconWhatsapp class="text-2xl hover:text-gold-light"
+            /></a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
   <!--  -->
-  <div class="bg-black-light text-gray-200 px-2 lg:px-40">
+  <div class="bg-black-light text-gold-light px-2 lg:px-40">
     <p class="flex justify-center py-2">
-      &copy; {{ new Date().getFullYear() }} AR Stereo
+      &copy; {{ new Date().getFullYear() }} AR Stereo &reg;
     </p>
   </div>
 </template>
 <script>
-const logo = require("../assets/img/banner.jpg");
+const logo = require("../assets/img/banner.png");
 import {
   BIconFacebook,
   BIconTwitterX,
   BIconInstagram,
+  BIconWhatsapp
 } from "bootstrap-icons-vue";
 export default {
   name: "FooterComponent",
-  components: { BIconFacebook, BIconTwitterX, BIconInstagram },
+  components: { BIconFacebook, BIconTwitterX, BIconInstagram, BIconWhatsapp },
 
   data() {
     return {

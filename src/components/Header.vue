@@ -16,7 +16,7 @@
     </div>
   </template>
   <script>
-  const logo = require('../assets/img/banner.jpg');
+  const logo = require('../assets/img/banner.png');
   
   export default {
     name: 'HeaderComponent',
