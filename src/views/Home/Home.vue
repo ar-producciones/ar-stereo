@@ -11,7 +11,6 @@ import "vue3-carousel/dist/carousel.css";
 export default {
   name: "HomeComponent",
   components: { Layout, Carousel },
-
   data: () => {
     return {
       audio: undefined,
