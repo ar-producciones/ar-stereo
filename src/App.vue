@@ -19,7 +19,7 @@ export default {
       description: `
       Conectate dónde tú estés ...!
       Ar Stereo "Latiendo con tu música Latina". Todos los géneros musicales suenan en: Tu Radio ar-stereo.com.`,
-      htmlAttrs: { lang: 'es', amp: true },
+      htmlAttrs: { lang: 'es' },
     });
   },
 };
