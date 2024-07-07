@@ -63,24 +63,15 @@ export default {
     </section>
 
     <section id="home" class="relative h-screen overflow-hidden bg-black">
-      <div class="flex justify-center py-8 my-2 h-100">
-        <figure class="flex-col flex w-[350px] lg:w-[600px]">
-          <img
-            class="w-[350px] m-auto"
-            src="../../assets/img/live-stream.jpg"
-            alt="ar-stereo"
-          />
-          <!-- Autoplay is allowed. -->
-          <iframe
-            id="player"
-            src="https://sonic.cloudstreaming.eu/cp/widgets/player/single/?p=8036"
-            height="110"
-            width="100%"
-            scrolling="no"
-            style="border: none"
-          />
-        </figure>
-      </div>
+      <center>
+        <iframe
+          src="https://players.hostingned.net/playlivestream/arstereo/"
+          width="900"
+          height="500"
+          scrolling="no"
+          frameborder="0"
+        ></iframe>
+      </center>
     </section>
 
     <section id="" class="relative overflow-hidden bg-black">
