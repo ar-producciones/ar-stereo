@@ -3,7 +3,7 @@
     <template v-slot:title="{ content }">{{
       content
         ? `${content} | Latiendo con tu música Latina...`
-        : `ar-stereo.com`
+        : `www.arstereo.com`
     }}</template>
   </metainfo>
   <router-view />
