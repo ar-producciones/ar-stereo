@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-black-light lg:justify-center flex text-white">
+  <div class="flex text-white bg-black-light lg:justify-center">
     <div
-      class="flex flex-col justify-center lg:justify-around lg:flex-row lg:items-center py-4 flex-wrap"
+      class="flex flex-col flex-wrap justify-center py-4 lg:justify-around lg:flex-row lg:items-center"
     >
       <img
         class="hidden lg:flex"
@@ -10,38 +10,37 @@
         width="150"
         height="200"
       />
-      <h3 class="text-center font-montserrat italic mx-2">
+      <h3 class="mx-2 italic text-center font-montserrat">
         Latiendo con tu musica latina...
       </h3>
     </div>
   </div>
-  <div class="bg-black-light text-white flex justify-center px-8">
+  <div class="flex justify-center px-8 text-white bg-black-light">
     <div class="">
-      <div class="uppercase flex py-2">
+      <div class="flex py-2 uppercase">
         <ul class="m-2">
           <li>
-            <a href="#">
+            <a
+              href="https://www.facebook.com/people/AR-Stereo-Oficial/100083274582169/"
+              target="_blank"
+            >
               <BIconFacebook class="text-2xl hover:text-gold-light"
             /></a>
           </li>
         </ul>
         <ul class="m-2">
           <li>
-            <a href="#">
+            <a
+              href="https://www.instagram.com/arstereooficiall/"
+              target="_blank"
+            >
               <BIconInstagram class="text-2xl hover:text-gold-light"
             /></a>
           </li>
         </ul>
         <ul class="m-2">
           <li>
-            <a href="#">
-              <BIconTwitterX class="text-2xl hover:text-gold-light"
-            /></a>
-          </li>
-        </ul>
-        <ul class="m-2">
-          <li>
-            <a href="#">
+            <a href="https://wa.link/xkbjn8" target="_blank">
               <BIconWhatsapp class="text-2xl hover:text-gold-light"
             /></a>
           </li>
@@ -50,7 +49,7 @@
     </div>
   </div>
   <!--  -->
-  <div class="bg-black-light text-gold-light px-2 lg:px-40">
+  <div class="px-2 bg-black-light text-gold-light lg:px-40">
     <p class="flex justify-center py-2">
       &copy; {{ new Date().getFullYear() }} AR Stereo &reg;
     </p>
@@ -60,13 +59,12 @@
 const logo = require("../assets/img/banner.png");
 import {
   BIconFacebook,
-  BIconTwitterX,
   BIconInstagram,
-  BIconWhatsapp
+  BIconWhatsapp,
 } from "bootstrap-icons-vue";
 export default {
   name: "FooterComponent",
-  components: { BIconFacebook, BIconTwitterX, BIconInstagram, BIconWhatsapp },
+  components: { BIconFacebook, BIconInstagram, BIconWhatsapp },
 
   data() {
     return {
