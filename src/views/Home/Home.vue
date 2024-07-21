@@ -47,11 +47,6 @@ export default {
       ],
     };
   },
-  methods: {
-    play() {
-      // play on mount
-    },
-  },
 };
 </script>
 <template>
@@ -63,15 +58,13 @@ export default {
     </section>
 
     <section id="home" class="relative h-screen overflow-hidden bg-black">
-      <center>
+      <div class="player">
         <iframe
           src="https://players.hostingned.net/playlivestream/arstereo/"
-          width="900"
-          height="500"
           scrolling="no"
           frameborder="0"
         ></iframe>
-      </center>
+      </div>
     </section>
 
     <section id="" class="relative overflow-hidden bg-black">
@@ -93,14 +86,22 @@ export default {
           />
         </div>
         <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[100px] lg:w-[250px]"
-            :src="notiAr"
-            alt="ar-tv"
-            height="250"
-          />
+          <a href="https://notiarve.com/" target="_blank">
+            <img
+              class="w-[100px] lg:w-[250px]"
+              :src="notiAr"
+              alt="ar-tv"
+              height="250"
+            />
+          </a>
         </div>
       </div>
     </section>
   </Layout>
 </template>
+<style>
+.player iframe {
+  min-width: 100%;
+  height: 400px;
+}
+</style>
