@@ -14,10 +14,6 @@ export default defineComponent({
   props: {
     images: { type: Array },
   },
-  emits: ["play"],
-  mounted() {
-    this.$emit("play");
-  },
 });
 </script>
 <template>
