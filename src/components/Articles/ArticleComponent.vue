@@ -11,7 +11,9 @@ export default {
 };
 </script>
 <template>
-  <div class="rounded-md w-[300px] lg:w-[280px] shadow-2xl hover:scale-125">
+  <div
+    class="rounded-md w-[300px] lg:w-[280px] shadow-2xl hover:scale-125 hover:my-4"
+  >
     <div>
       <img
         class="rounded-t-md h-[200px] w-[300px] lg:w-[280px] hover:w-full hover:h-fit"
