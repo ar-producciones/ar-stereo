@@ -3,6 +3,7 @@ import Carousel from "@/components/Carousel.vue";
 import Player from "@/components/Player.vue";
 import DownloadApp from "@/components/DownloadApp.vue";
 import ArticleList from "@/components/Articles/ArticlesList.vue";
+import LastArticle from "@/components/Articles/LastArticle.vue";
 import { ESLOGAN, ABOUT_TEXT, CANONICAL_URL } from "@/common/constants.js";
 import NotiArVe from "@/api/notiarve-api.js";
 
@@ -47,13 +48,20 @@ const articleStore = useArticlesStore();
 const getArticles = async () => {
   try {
     const response = await notiarv.getArticles();
-    articleStore.setArticles(response);
+    const contentOriginal = response[0].content;
+    const cleanContent = contentOriginal.replace(/<\/?[^>]+(>|$)/gi, "");
+    await articleStore.setLastArticle({
+      ...response[0],
+      content: cleanContent.replace(", […]", " ..."),
+    });
+    await response.shift();
+    await articleStore.setArticles(response);
   } catch (error) {
     console.error("Error fetching articles:", error);
   }
 };
 const articlesData = computed(() => articleStore.articles);
-
+const lastArticle = computed(() => articleStore.getLastArticle);
 onMounted(() => {
   getArticles();
 });
@@ -68,10 +76,14 @@ onMounted(() => {
       <Player />
     </section>
     <DownloadApp />
-    <section id="news" class="h-auto bg-white">
-      <h3 class="p-5 text-center">Ultimas Noticias</h3>
-      <div class="flex flex-wrap justify-center h-auto p-5">
-        <ArticleList :articles="articlesData" />
+    <section id="news" class="h-auto bg-white-mark p-10">
+      <h3 class="px-2 text-center">Ultimas Noticias</h3>
+
+      <div class="flex flex-col justify-center md:flex-col lg:flex-row">
+        <LastArticle :lastArticle="lastArticle" />
+        <div class="flex flex-col flex-wrap h-auto p-5">
+          <ArticleList :articles="articlesData" />
+        </div>
       </div>
     </section>
     <section id="about">
@@ -140,5 +152,7 @@ onMounted(() => {
   background-size: cover;
   background-repeat: no-repeat;
   height: 350px;
+}
+.news-layout {
 }
 </style>

@@ -11,7 +11,7 @@ defineComponent({
 
 <template>
   <div
-    class="flex justify-around p-5"
+    class="flex justify-around p-5 bg-white-mark"
     v-bind:key="article"
     v-for="article in props.articles"
   >

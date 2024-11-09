@@ -29,6 +29,7 @@ export const theme = {
   extend: {
     colors: {
       white: '#f6f6f6',
+      'white-mark': '#ffffff',
       'black-light': '#0a0a0a',
       'gold-light': '#d0b257',
       'gold-extra-light': '#dcbe60',

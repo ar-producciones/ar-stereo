@@ -1,6 +1,7 @@
 import { NOTIARVE_URL } from "@/common/constants";
 import { decode } from 'html-entities';
 import axios from "axios";
+import { content } from "~/tailwind.config";
 
 export default class NotiArVe {
   constructor() {
@@ -26,6 +27,7 @@ export default class NotiArVe {
             mediaUrl: await this.getImages(
               item._links["wp:featuredmedia"][0].href
             ),
+            content: decode(item.excerpt.rendered)
           };
           return data;
         })

@@ -11,15 +11,14 @@ export default {
 };
 </script>
 <template>
-  <div
-    class="rounded-md w-[300px] lg:w-[280px] shadow-2xl hover:scale-125 hover:my-4"
-  >
+  <div class="rounded-md w-[300px] md:w-[600px] lg:w-[280px]">
     <div>
-      <img
-        class="rounded-t-md h-[200px] w-[300px] lg:w-[280px] hover:w-full hover:h-fit"
-        :src="props.article.mediaUrl"
-        :alt="props.article.title"
-      />
+      <a :href="props.article.url" target="_blank"
+        ><img
+          class="rounded-t-md h-[200px] w-[300px] md:w-[600px] md:h-[400px] lg:h-[200px] lg:w-[280px]"
+          :src="props.article.mediaUrl"
+          :alt="props.article.title"
+      /></a>
     </div>
     <div class="p-3">
       <span class="text-xs text-gray-600 font-montserrat"

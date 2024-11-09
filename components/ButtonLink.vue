@@ -12,6 +12,7 @@ const props = defineProps({
   description: { type: String },
   value: { type: String },
   icon: { type: Object },
+  url: { type: String },
 });
 
 const btnStyle = computed(() => ({
@@ -22,6 +23,9 @@ const btnStyle = computed(() => ({
 }));
 
 const link = computed(() => {
+  if (!props.store) {
+    return props.url;
+  }
   return props.store === "android" ? ANDROID_STORE_URL : APPLE_STORE_URL;
 });
 </script>
