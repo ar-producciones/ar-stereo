@@ -27,6 +27,7 @@
           class="flex"
           value="Leer mas..."
           theme="gold"
+          size="sm"
           :url="lastArticle.url"
         />
       </div>
