@@ -4,59 +4,36 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "start": "node .output/server/index.mjs",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@chenfengyuan/vue-carousel": "^2.0.0",
-    "@fortawesome/vue-fontawesome": "^3.0.5",
-    "@headlessui/vue": "^1.7.22",
+    "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.1.5",
-    "axios": "^1.7.4",
-    "bootstrap-icons-vue": "^1.11.1",
-    "core-js": "^3.8.3",
-    "hooper": "^0.3.4",
+    "@nuxt/image": "^1.8.1",
+    "@nuxtjs/amp": "^0.5.4",
+    "@pinia/nuxt": "^0.6.1",
+    "@primevue/nuxt-module": "^4.2.1",
+    "@primevue/themes": "^4.2.1",
+    "axios": "^1.7.7",
+    "bootstrap-icons-vue": "^1.11.3",
     "html-entities": "^2.5.2",
-    "pinia": "^2.2.2",
-    "pinia-plugin-persistedstate": "^3.2.1",
-    "vue": "^3.2.13",
-    "vue-3-meta": "^2.4.0",
-    "vue-meta": "^3.0.0-alpha.10",
-    "vue3-carousel": "^0.3.1",
-    "vuex": "^4.0.2"
+    "nuxt": "^3.13.2",
+    "nuxt-primevue": "^3.0.0",
+    "nuxt-skeleton": "^1.0.1",
+    "pinia": "^2.2.5",
+    "primevue": "^4.2.1",
+    "vue": "^3.4.5",
+    "vue-router": "^4.2.5",
+    "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "autoprefixer": "^10.4.17",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "postcss": "^8.4.33",
-    "tailwindcss": "^3.4.1",
-    "vue-router": "^4.2.5"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie 11"
-  ]
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14"
+  }
 }
