@@ -3,4 +3,4 @@ export const APPLE_STORE_URL = 'https://apps.apple.com/app/ar-stereo/id656925417
 export const NOTIARVE_URL = 'https://notiarve.com'
 export const ESLOGAN = 'Latiendo con tu musica latina...'
 export const ABOUT_TEXT = "Somos una estación de radio digital con una programación distinta a lo escuchado ya, Somos el estilo Crossover que está innovando en la web musical, mejor balanceado y con súper sonido digital…"
-export const CANONICAL_URL = "https://w9f70sx6-3000.use2.devtunnels.ms/" //"https://www.arstereo.com/"
+export const CANONICAL_URL = "https://www.arstereo.com/"
