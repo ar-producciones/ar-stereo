@@ -19,4 +19,10 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@nuxt/image", "@pinia/nuxt"],
+  nitro: {
+    prerender: {
+      routes: ["/"],
+      ignore: ["/dynamic"],
+    },
+  },
 });
