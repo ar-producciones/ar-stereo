@@ -76,7 +76,7 @@ onMounted(() => {
       <Player />
     </section>
     <DownloadApp />
-    <section id="news" class="h-auto bg-white-mark p-10">
+    <section id="news" class="h-auto p-10 bg-white-mark">
       <h3 class="px-2 text-center">Ultimas Noticias</h3>
 
       <div class="flex flex-col justify-center md:flex-col lg:flex-row">
