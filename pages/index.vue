@@ -115,34 +115,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <section id="powered" class="relative overflow-hidden bg-black">
-      <div class="flex justify-center text-white bg-black-light">
-        <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[100px] lg:w-max-[200px]"
-            :src="alfredoRojas"
-            alt="alfredo-rojas"
-          />
-        </div>
-        <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[100px] lg:w-max-[200px]"
-            :src="tvDigital"
-            alt="ar-tv"
-          />
-        </div>
-        <div class="flex items-center py-2 mx-2">
-          <a href="https://notiarve.com/" target="_blank">
-            <img
-              class="w-[100px] lg:w-max-[200px]"
-              :src="notiAr"
-              alt="notiarve"
-            />
-          </a>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 <style scoped>
@@ -152,7 +124,5 @@ onMounted(() => {
   background-size: cover;
   background-repeat: no-repeat;
   height: 350px;
-}
-.news-layout {
 }
 </style>
