@@ -11,5 +11,6 @@
         "nuxtjs",
         "pinia",
         "tailwindcss"
-    ]
+    ],
+    "css.customData": [".vscode/tailwind.json"]
 }

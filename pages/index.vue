@@ -2,24 +2,22 @@
 import Carousel from "@/components/Carousel.vue";
 import Player from "@/components/Player.vue";
 import DownloadApp from "@/components/DownloadApp.vue";
-import ArticleList from "@/components/Articles/ArticlesList.vue";
-import LastArticle from "@/components/Articles/LastArticle.vue";
-import { ESLOGAN, ABOUT_TEXT, CANONICAL_URL } from "@/common/constants.js";
-import NotiArVe from "@/api/notiarve-api.js";
-
-// Array de imágenes
-import tvDigital from "@/assets/img/tv-digital.png";
-import notiAr from "@/assets/img/noti-ar.png";
-import alfredoRojas from "@/assets/img/alfredo-rojas.png";
+import {
+  ESLOGAN,
+  ABOUT_TEXT,
+  CANONICAL_URL,
+  PARTNERS,
+} from "@/common/constants.js";
 
 import alfredoRojasImage from "../assets/img/alfredo-rojas.jpg";
 import marianaCamachoImage from "../assets/img/mariana-camacho.jpg";
 import jesusChaminCastroImage from "../assets/img/jesus-chamin-castro.jpg";
 import neomarCepedaImage from "../assets/img/neomar-cepeda.jpg";
 import edgarPetitImage from "../assets/img/edgar-petit.jpg";
-import { useArticlesStore } from "@/stores/articles";
+import CardImage from "@/components/CardImage/CardImage.vue";
+import { usePartners } from "~/features/partners/composables/usePartners";
 const aboutImage = "about-ar-stereo.jpg";
-
+const router = useRouter();
 const images = computed(() => {
   return [
     { id: 1, name: "Alfredo Rojas", url: alfredoRojasImage },
@@ -30,8 +28,38 @@ const images = computed(() => {
   ];
 });
 
-// Instancia de la API
-const notiarv = new NotiArVe();
+const locutores = [
+  {
+    id: 0,
+    name: "Daenerys Targaryen",
+    image: "https://thronesapi.com/assets/images/daenerys.jpg",
+  },
+  {
+    id: 1,
+    name: "Samwell Tarly",
+    image: "https://thronesapi.com/assets/images/sam.jpg",
+  },
+  {
+    id: 2,
+    name: "Jon Snow",
+    image: "https://thronesapi.com/assets/images/jon-snow.jpg",
+  },
+  {
+    id: 3,
+    name: "Arya Stark",
+    image: "https://thronesapi.com/assets/images/arya-stark.jpg",
+  },
+  {
+    id: 4,
+    name: "Sansa Stark",
+    image: "https://thronesapi.com/assets/images/sansa-stark.jpeg",
+  },
+  {
+    id: 5,
+    name: "Brandon Stark",
+    image: "https://thronesapi.com/assets/images/bran-stark.jpg",
+  },
+];
 useSeoMeta({
   title: `AR Stereo | ${ESLOGAN}`,
   ogTitle: `AR Stereo | ${ESLOGAN}`,
@@ -42,28 +70,14 @@ useSeoMeta({
   ogType: "website",
   twitterCard: "summary_large_image",
 });
+const { getPartners } = usePartners();
+const partners = ref();
 
-//const store = useStore();
-const articleStore = useArticlesStore();
-const getArticles = async () => {
-  try {
-    const response = await notiarv.getArticles();
-    const contentOriginal = response[0].content;
-    const cleanContent = contentOriginal.replace(/<\/?[^>]+(>|$)/gi, "");
-    await articleStore.setLastArticle({
-      ...response[0],
-      content: cleanContent.replace(", […]", " ..."),
-    });
-    await response.shift();
-    await articleStore.setArticles(response);
-  } catch (error) {
-    console.error("Error fetching articles:", error);
-  }
+const handleRegister = () => {
+  router.push("/tu-voz-ar-stereo");
 };
-const articlesData = computed(() => articleStore.articles);
-const lastArticle = computed(() => articleStore.getLastArticle);
-onMounted(() => {
-  getArticles();
+onMounted(async () => {
+  partners.value = await getPartners();
 });
 </script>
 
@@ -76,83 +90,48 @@ onMounted(() => {
       <Player />
     </section>
     <DownloadApp />
-    <section id="news" class="h-auto p-10 bg-white-mark">
-      <h3 class="px-2 text-center">Ultimas Noticias</h3>
 
-      <div class="flex flex-col justify-center md:flex-col lg:flex-row">
-        <LastArticle :lastArticle="lastArticle" />
-        <div class="flex flex-col flex-wrap h-auto p-5">
-          <ArticleList :articles="articlesData" />
+    <section v-if="false" class="h-[700px] tu-voz-ar-stereo">
+      <div>
+        <span class="flex items-center justify-end gap-4 p-8">
+          <h4 class="text-white">Tu Voz Ar Stereo</h4>
+          <Button
+            class="font-bold cursor-pointer"
+            value="Registrarse"
+            theme="gold"
+            @on-click="handleRegister"
+          />
+        </span>
+      </div>
+    </section>
+    <!-- Locutores -->
+    <section v-if="false" class="flex justify-center w-full pb-5 bg-black">
+      <div class="flex flex-col justify-center w-2/3 h-auto lg:w-[1200px]">
+        <h3 class="p-8 italic font-bold text-center text-white">
+          Nuestros locutores
+        </h3>
+        <div class="flex justify-between p-10 md:p-10">
+          <CardImage :items="locutores" />
         </div>
       </div>
     </section>
-    <section id="about">
-      <div class="flex flex-col justify-between py-8 text-white bg-black">
-        <h1 class="p-8 mx-8 text-5xl italic text-gold font-montserrat">
-          AR Stereo
-        </h1>
-        <div
-          class="flex flex-col m-8 md:justify-around sm:flex-col md:flex-col lg:flex-row"
-        >
-          <div
-            class="text-2xl italic text-justify text-gray-300 indent-8 lg:mx-2"
-          >
-            <p class="w-max-[600px] md:w-[600px]">
-              {{ ABOUT_TEXT }}
-            </p>
-            <h2 class="p-8 mx-8 text-3xl italic text-gold font-montserrat">
-              Nuestra Vision
-            </h2>
-            <p class="w-max-[600px] md:w-[600px] indent-8">
-              Tenemos la visión de llegar a los diferentes estratos de audiencia
-              a nivel mundial siendo nuestra prioridad el público latino en todo
-              el mundo.
-            </p>
-          </div>
-          <div
-            class="w-full md:w-full lg:w-[500px] lg:mx-2 about-background"
-          ></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="powered" class="relative overflow-hidden bg-black">
-      <div class="flex justify-center text-white bg-black-light">
-        <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[100px] lg:w-max-[200px]"
-            :src="alfredoRojas"
-            alt="alfredo-rojas"
-          />
-        </div>
-        <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[100px] lg:w-max-[200px]"
-            :src="tvDigital"
-            alt="ar-tv"
-          />
-        </div>
-        <div class="flex items-center py-2 mx-2">
-          <a href="https://notiarve.com/" target="_blank">
-            <img
-              class="w-[100px] lg:w-max-[200px]"
-              :src="notiAr"
-              alt="notiarve"
-            />
-          </a>
+    <!-- Aliados -->
+    <section v-if="false" class="flex justify-center w-full bg-white">
+      <div class="flex flex-col justify-center w-2/3 h-auto lg:w-[1200px]">
+        <h3 class="p-8 italic font-bold text-center text-black">
+          {{ PARTNERS }}
+        </h3>
+        <div class="flex justify-between p-10 md:p-10">
+          <CardImage :items="partners" size="sm" />
         </div>
       </div>
     </section>
   </div>
 </template>
 <style scoped>
-.about-background {
-  background-image: url("/about-ar-stereo.jpg");
-  background-position: center;
-  background-size: cover;
+.tu-voz-ar-stereo {
+  background-image: url("tu-voz-arstero.png");
   background-repeat: no-repeat;
-  height: 350px;
-}
-.news-layout {
+  background-size: cover;
 }
 </style>
