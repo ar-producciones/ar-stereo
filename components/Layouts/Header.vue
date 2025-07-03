@@ -1,3 +1,34 @@
+<script>
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
+import { defineComponent } from "vue";
+import { useRouter } from "vue-router"; // Importar useRouter
+
+export default defineComponent({
+  name: "HeaderComponent",
+  components: {
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    Bars3Icon,
+    XMarkIcon,
+  },
+  props: { navigation: { type: Array } },
+  setup() {
+    const router = useRouter(); // Obtener el enrutador
+    const dynamicPage = computed(() => {
+      return router.currentRoute.value.path.split("/").pop(); // Obtener la última parte de la ruta
+    });
+
+    const navigateTo = (href) => {
+      router.push(href); // Navegar programáticamente
+    };
+
+    return { dynamicPage, router, navigateTo }; // Retornar navigateTo para usarlo en el template
+  },
+});
+</script>
+
 <template>
   <Disclosure as="nav" class="bg-black" v-slot="{ open }">
     <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -25,14 +56,14 @@
               <a
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
+                @click="navigateTo(item.href)"
                 :class="[
-                  item.current
+                  dynamicPage === item.href
                     ? 'text-gold'
-                    : 'text-white hover:text-gold-light',
-                  'uppercase px-3 py-2 text-lg ',
+                    : 'text-white hover:text-gold hover:cursor-pointer',
+                  'uppercase px-3 py-2 text-lg font-bold',
                 ]"
-                :aria-current="item.current ? 'page' : undefined"
+                :aria-current="dynamicPage === item.href ? 'page' : undefined"
                 >{{ item.name }}</a
               >
             </div>
@@ -49,36 +80,19 @@
         <DisclosureButton
           v-for="item in navigation"
           :key="item.name"
-          as="a"
-          :href="item.href"
-          :class="[
-            item.current
-              ? 'bg-gold text-white'
-              : 'text-gray-300 hover:bg-gold hover:text-white',
-            'uppercase block rounded-md px-3 py-2 text-base font-medium',
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
+          @click="navigateTo(item.href)"
+          <!--
+          Cambio
+          aquí
+          también
+          --
+        >
+          :class="[ item.current ? 'bg-gold text-white' : 'text-gray-300
+          hover:bg-gold hover:text-white', 'uppercase block rounded-md px-3 py-2
+          text-base font-medium', ]" :aria-current="item.current ? 'page' :
+          undefined" >{{ item.name }}</DisclosureButton
         >
       </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
-
-<script>
-import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
-import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
-
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "HeaderComponent",
-  components: {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-    Bars3Icon,
-    XMarkIcon,
-  },
-  props: { navigation: { type: Array } },
-});
-</script>

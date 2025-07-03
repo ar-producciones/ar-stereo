@@ -12,19 +12,21 @@ useHead(() => ({
 }));
 
 const navigation = [
-  { name: "Inicio", href: "#home", current: true },
-  { name: "Noticias", href: "#news", current: false },
-  { name: "Acerca de", href: "#about", current: false },
+  { name: "Inicio", href: "home" },
+  { name: "Noticias", href: "news" },
+  { name: "Acerca de", href: "about" },
 ];
 const alliedPrograms = [
-  { name: "Tu Voz AR Stereo", href: "#", current: false },
-  { name: "Noti Ar Ve", href: "#", current: false },
+  { name: "Tu Voz AR Stereo", href: "#" },
+  { name: "Noti Ar Ve", href: "#" },
 ];
 </script>
 <template>
-  <div class="layout">
+  <div>
     <Header :navigation="navigation" />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer :navigation="navigation" :alliedPrograms="alliedPrograms" />
   </div>
 </template>

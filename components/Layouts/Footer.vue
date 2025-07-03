@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router"; // Importar useRouter
 import alfredoRojas from "@/assets/img/alfredo-rojas.png";
 import {
   BIconFacebook,
@@ -9,81 +10,125 @@ import {
 interface NavigationItem {
   name: string;
   href: string;
-  current: boolean;
+  current: boolean; // Ya no usaremos esta propiedad
 }
 
-defineComponent({
-  name: "FooterComponent",
-});
+const router = useRouter(); // Obtener el enrutador
 
+// Define props for the component
 defineProps({
   navigation: {
     type: Array as () => NavigationItem[],
     required: true,
   },
-
   alliedPrograms: {
     type: Array as () => NavigationItem[],
     required: true,
   },
 });
+
+// Método para navegar programáticamente
+const navigateTo = (href: string) => {
+  router.push(href); // Navegar a la ruta proporcionada
+};
+
+// Función para verificar si la página es la actual
+const isCurrentPage = (href: string): boolean => {
+  return router.currentRoute.value.path === href;
+};
 </script>
 
 <template>
-  <footer class="footer">
-    <section class="footer-section">
-      <div class="column">
-        <h5 class="title">MENU</h5>
-        <ul class="item" v-for="item in navigation" :key="item.name">
+  <footer class="bg-black">
+    <section
+      class="max-w-screen-xl bg-black grid gap-1 m-auto p-1 grid-cols-1 md:grid-cols-3 md:gap-2 lg:gap-4 lg:grid-cols-4"
+    >
+      <div class="text-white p-4 uppercase">
+        <h5 class="font-bold">MENU</h5>
+        <ul class="my-4" v-for="item in navigation" :key="item.name">
           <li>
-            <a :key="item.name" :href="item.href">{{ item.name }}</a>
+            <!-- Usamos isCurrentPage para determinar si estamos en la página actual -->
+            <a
+              @click="navigateTo(item.href)"
+              :class="{
+                'text-gold': isCurrentPage(item.href), // Página actual
+                'hover:text-gold hover:cursor-pointer': !isCurrentPage(
+                  item.href
+                ), // Hover en otros enlaces
+                'text-white': !isCurrentPage(item.href), // Color base para los demás
+              }"
+            >
+              {{ item.name }}
+            </a>
           </li>
         </ul>
       </div>
-      <div class="column">
-        <h5 class="title">PROGRAMAS ALIADOS</h5>
-        <ul class="item" v-for="item in alliedPrograms" :key="item['name']">
+      <div class="text-white p-4 uppercase">
+        <h5 class="font-bold">PROGRAMAS ALIADOS</h5>
+        <ul class="my-4" v-for="item in alliedPrograms" :key="item['name']">
           <li>
-            <a :key="item.name" :href="item.href">{{ item.name }}</a>
+            <!-- Usamos isCurrentPage para determinar si estamos en la página actual -->
+            <a
+              @click="navigateTo(item.href)"
+              :class="{
+                'text-gold': isCurrentPage(item.href), // Página actual
+                'hover:text-gold hover:cursor-pointer': !isCurrentPage(
+                  item.href
+                ), // Hover en otros enlaces
+                'text-white': !isCurrentPage(item.href), // Color base para los demás
+              }"
+              class=""
+            >
+              {{ item.name }}
+            </a>
           </li>
         </ul>
       </div>
-      <div class="column">
-        <h5 class="title">REDES SOCIALES</h5>
+      <div class="text-white p-4 uppercase">
+        <h5 class="font-bold">REDES SOCIALES</h5>
         <div class="flex py-2 uppercase">
           <ul class="m-2">
             <li>
               <a
+                class="hover:text-gold hover:cursor-pointer"
                 href="https://www.facebook.com/people/AR-Stereo-Oficial/100083274582169/"
                 target="_blank"
               >
-                <BIconFacebook class="text-2xl hover:text-gold"
-              /></a>
+                <BIconFacebook class="text-2xl hover:text-gold" />
+              </a>
             </li>
           </ul>
           <ul class="m-2">
             <li>
               <a
+                class="hover:text-gold hover:cursor-pointer"
                 href="https://www.instagram.com/arstereooficiall/"
                 target="_blank"
               >
-                <BIconInstagram class="text-2xl hover:text-gold"
-              /></a>
+                <BIconInstagram class="text-2xl hover:text-gold" />
+              </a>
             </li>
           </ul>
           <ul class="m-2">
             <li>
-              <a href="https://wa.link/xkbjn8" target="_blank">
-                <BIconWhatsapp class="text-2xl hover:text-gold"
-              /></a>
+              <a
+                class="hover:text-gold hover:cursor-pointer"
+                href="https://wa.link/xkbjn8"
+                target="_blank"
+              >
+                <BIconWhatsapp class="text-2xl hover:text-gold" />
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div
-        class="flex flex-col items-center col-span-1 md:col-span-4 lg:col-span-1 column"
+        class="flex flex-col items-center col-span-1 md:col-span-4 lg:col-span-1 column lg:flex-col-reverse"
       >
-        <h5 class="mark">Producto con el sello oficial de Alfredo Rojas.</h5>
+        <h5 class="text-white text-center font-extralight">
+          Este producto cuenta con el sello oficial de Alfredo Rojas, símbolo de
+          calidad y excelencia.
+        </h5>
         <div class="flex items-center py-2 mx-2">
           <img
             class="w-[150px] lg:w-max-[200px]"
@@ -100,25 +145,5 @@ defineProps({
     </section>
   </footer>
 </template>
-<style scoped>
-.title {
-  @apply font-bold;
-}
-.footer {
-  @apply bg-black;
-}
-.footer-section {
-  @apply max-w-screen-xl bg-black grid gap-1 m-auto p-1 grid-cols-1  md:grid-cols-3 md:gap-2 lg:gap-4 lg:grid-cols-4;
-}
 
-.column {
-  @apply text-white p-4 uppercase;
-}
-.item {
-  @apply my-4 hover:text-gold;
-}
-.mark {
-  text-transform: none;
-  text-align: center;
-}
-</style>
+<style scoped></style>

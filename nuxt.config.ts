@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from "nuxt/config";
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -11,17 +12,26 @@ export default defineNuxtConfig({
   },
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
-  css: ["~/assets/css/tailwind.css", "vue3-carousel/dist/carousel.css"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/fonts",
+    "@nuxt/icon",
+    "@nuxt/image",
+    "@nuxt/scripts",
+    "@nuxt/ui",
+  ],
+  css: ["~/assets/css/main.css", "vue3-carousel/dist/carousel.css"],
+
   postcss: {
     plugins: {
-      tailwindcss: {},
+      "@tailwindcss/postcss": {},
       autoprefixer: {},
     },
   },
-  modules: ["@nuxt/image", "@pinia/nuxt"],
+
   nitro: {
     prerender: {
-      routes: ["/"],
+      routes: ["/home"],
       ignore: ["/dynamic"],
     },
   },
