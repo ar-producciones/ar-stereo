@@ -91,7 +91,7 @@ onMounted(async () => {
     </section>
     <DownloadApp />
 
-    <section class="h-[700px] tu-voz-ar-stereo">
+    <section v-if="false" class="h-[700px] tu-voz-ar-stereo">
       <div>
         <span class="flex items-center justify-end gap-4 p-8">
           <h4 class="text-white">Tu Voz Ar Stereo</h4>
@@ -105,7 +105,7 @@ onMounted(async () => {
       </div>
     </section>
     <!-- Locutores -->
-    <section class="flex justify-center w-full pb-5 bg-black">
+    <section v-if="false" class="flex justify-center w-full pb-5 bg-black">
       <div class="flex flex-col justify-center w-2/3 h-auto lg:w-[1200px]">
         <h3 class="p-8 italic font-bold text-center text-white">
           Nuestros locutores
@@ -116,7 +116,7 @@ onMounted(async () => {
       </div>
     </section>
     <!-- Aliados -->
-    <section class="flex justify-center w-full bg-white">
+    <section v-if="false" class="flex justify-center w-full bg-white">
       <div class="flex flex-col justify-center w-2/3 h-auto lg:w-[1200px]">
         <h3 class="p-8 italic font-bold text-center text-black">
           {{ PARTNERS }}

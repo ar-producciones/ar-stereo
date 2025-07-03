@@ -17,7 +17,7 @@ export default defineComponent({
   setup() {
     const router = useRouter(); // Obtener el enrutador
     const dynamicPage = computed(() => {
-      return router.currentRoute.value.path.split("/").pop(); // Obtener la última parte de la ruta
+      return router.currentRoute.value.path; // Obtener la última parte de la ruta
     });
 
     const navigateTo = (href) => {
@@ -81,17 +81,16 @@ export default defineComponent({
           v-for="item in navigation"
           :key="item.name"
           @click="navigateTo(item.href)"
-          <!--
-          Cambio
-          aquí
-          también
-          --
+          :class="[
+            dynamicPage === item.href
+              ? 'bg-gold text-white'
+              : 'text-gray-300 hover:bg-gold hover:text-white',
+            'uppercase block rounded-md px-3 py-2 text-base font-medium w-full',
+          ]"
+          :aria-current="dynamicPage === item.href ? 'page' : undefined"
         >
-          :class="[ item.current ? 'bg-gold text-white' : 'text-gray-300
-          hover:bg-gold hover:text-white', 'uppercase block rounded-md px-3 py-2
-          text-base font-medium', ]" :aria-current="item.current ? 'page' :
-          undefined" >{{ item.name }}</DisclosureButton
-        >
+          {{ item.name }}
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>

@@ -10,7 +10,7 @@ team.value = (await getTeam()) as unknown as CardImage[];
 </script>
 <template>
   <section
-    class="w-full bg-center bg-no-repeat bg-cover h-52 md:h-64 lg:h-[450px] bg-[url('/cover-arstereo.jpg')]"
+    class="w-full bg-center bg-no-repeat bg-cover h-64 md:h-64 lg:h-[450px] bg-[url('/cover-arstereo.jpg')]"
   >
     <div
       class="flex items-center justify-center w-full h-full bg-black/30 backdrop-blur-sm"
@@ -59,7 +59,7 @@ team.value = (await getTeam()) as unknown as CardImage[];
     </div>
   </section>
   <!-- Our Teams -->
-  <section class="flex justify-center w-full pb-5 text-black bg-white">
+  <section v-if="false" class="flex justify-center w-full pb-5 text-black bg-white">
     <div class="flex flex-col justify-center w-2/3 h-auto lg:w-[1200px]">
       <h3 class="p-8 italic font-bold text-center">Nuestro Equipo</h3>
       <div class="flex justify-between p-10 md:p-10">

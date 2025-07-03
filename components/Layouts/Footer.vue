@@ -41,9 +41,9 @@ const isCurrentPage = (href: string): boolean => {
 <template>
   <footer class="bg-black">
     <section
-      class="max-w-screen-xl bg-black grid gap-1 m-auto p-1 grid-cols-1 md:grid-cols-3 md:gap-2 lg:gap-4 lg:grid-cols-4"
+      class="grid max-w-screen-xl grid-cols-1 gap-1 p-1 m-auto bg-black md:grid-cols-3 md:gap-2 lg:gap-4 lg:grid-cols-4"
     >
-      <div class="text-white p-4 uppercase">
+      <div class="p-4 text-white uppercase">
         <h5 class="font-bold">MENU</h5>
         <ul class="my-4" v-for="item in navigation" :key="item.name">
           <li>
@@ -51,7 +51,6 @@ const isCurrentPage = (href: string): boolean => {
             <a
               @click="navigateTo(item.href)"
               :class="{
-                'text-gold': isCurrentPage(item.href), // Página actual
                 'hover:text-gold hover:cursor-pointer': !isCurrentPage(
                   item.href
                 ), // Hover en otros enlaces
@@ -63,28 +62,8 @@ const isCurrentPage = (href: string): boolean => {
           </li>
         </ul>
       </div>
-      <div class="text-white p-4 uppercase">
-        <h5 class="font-bold">PROGRAMAS ALIADOS</h5>
-        <ul class="my-4" v-for="item in alliedPrograms" :key="item['name']">
-          <li>
-            <!-- Usamos isCurrentPage para determinar si estamos en la página actual -->
-            <a
-              @click="navigateTo(item.href)"
-              :class="{
-                'text-gold': isCurrentPage(item.href), // Página actual
-                'hover:text-gold hover:cursor-pointer': !isCurrentPage(
-                  item.href
-                ), // Hover en otros enlaces
-                'text-white': !isCurrentPage(item.href), // Color base para los demás
-              }"
-              class=""
-            >
-              {{ item.name }}
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="text-white p-4 uppercase">
+
+      <div class="p-4 text-white uppercase">
         <h5 class="font-bold">REDES SOCIALES</h5>
         <div class="flex py-2 uppercase">
           <ul class="m-2">
@@ -102,7 +81,7 @@ const isCurrentPage = (href: string): boolean => {
             <li>
               <a
                 class="hover:text-gold hover:cursor-pointer"
-                href="https://www.instagram.com/arstereooficiall/"
+                href="https://www.instagram.com/turadioarstereo/"
                 target="_blank"
               >
                 <BIconInstagram class="text-2xl hover:text-gold" />
@@ -122,10 +101,12 @@ const isCurrentPage = (href: string): boolean => {
           </ul>
         </div>
       </div>
+      <div></div>
+
       <div
         class="flex flex-col items-center col-span-1 md:col-span-4 lg:col-span-1 column lg:flex-col-reverse"
       >
-        <h5 class="text-white text-center font-extralight">
+        <h5 class="text-center text-white font-extralight">
           Este producto cuenta con el sello oficial de Alfredo Rojas, símbolo de
           calidad y excelencia.
         </h5>

@@ -12,9 +12,9 @@ useHead(() => ({
 }));
 
 const navigation = [
-  { name: "Inicio", href: "home" },
-  { name: "Noticias", href: "news" },
-  { name: "Acerca de", href: "about" },
+  { name: "Inicio", href: "/" },
+  /* { name: "Noticias", href: "/news" }, */
+  { name: "Acerca de", href: "/about" },
 ];
 const alliedPrograms = [
   { name: "Tu Voz AR Stereo", href: "#" },
