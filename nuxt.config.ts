@@ -31,7 +31,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/home"],
+      routes: ["/"],
       ignore: ["/dynamic"],
     },
   },
