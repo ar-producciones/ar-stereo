@@ -61,12 +61,12 @@ const locutores = [
   },
 ];
 useSeoMeta({
-  title: `AR Stereo | ${ESLOGAN}`,
-  ogTitle: `AR Stereo | ${ESLOGAN}`,
+  title: `Tu Radio AR Stereo | ${ESLOGAN}`,
+  ogTitle: `Tu Radio AR Stereo | ${ESLOGAN}`,
   description: ABOUT_TEXT,
   ogDescription: ABOUT_TEXT,
   ogImage: `${CANONICAL_URL}${aboutImage}`,
-  ogImageAlt: "AR Stereo",
+  ogImageAlt: "Tu Radio AR Stereo",
   ogType: "website",
   twitterCard: "summary_large_image",
 });
