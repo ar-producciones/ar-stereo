@@ -8,6 +8,9 @@ export default defineNuxtConfig({
       meta: [
         { name: "keywords", content: "ar stereo, AR Stereo, AR, Radio AR" },
       ],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.svg" },
+      ],
     },
   },
   compatibilityDate: "2024-04-03",
