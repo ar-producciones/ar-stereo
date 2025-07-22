@@ -1,16 +1,16 @@
 {
-    "cSpell.words": [
-        "Acerca",
-        "ESLOGAN",
-        "Inicio",
-        "Noti",
-        "notiarv",
-        "NOTIARVE",
-        "Noticias",
-        "Nuxt",
-        "nuxtjs",
-        "pinia",
-        "tailwindcss"
-    ],
-    "css.customData": [".vscode/tailwind.json"]
+  "cSpell.words": [
+    "Acerca",
+    "ESLOGAN",
+    "Inicio",
+    "Noti",
+    "notiarv",
+    "NOTIARVE",
+    "Noticias",
+    "Nuxt",
+    "nuxtjs",
+    "pinia",
+    "tailwindcss"
+  ],
+  "css.customData": [".vscode/tailwind.json"]
 }

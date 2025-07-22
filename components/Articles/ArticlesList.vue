@@ -1,14 +1,14 @@
 <script setup>
-import { defineProps } from "vue";
-import Article from "@/components/Articles/Articles.vue";
+  import { defineProps } from 'vue'
+  import Article from '@/components/Articles/Articles.vue'
 
-defineProps({
-  articles: { type: Array, default: () => [] },
-  title: { type: String, default: "" },
-});
-defineComponent({
-  name: "ArticleListComponent",
-});
+  defineProps({
+    articles: { type: Array, default: () => [] },
+    title: { type: String, default: '' }
+  })
+  defineComponent({
+    name: 'ArticleListComponent'
+  })
 </script>
 
 <template>
