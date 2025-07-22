@@ -118,7 +118,12 @@
         <div
           class="grid items-center justify-center grid-cols-2 gap-6 py-8 sm:grid-cols-3 md:grid-cols-4"
         >
-          <NuxtLink v-for="(partner, index) in partners" :key="index" :to="partner.url">
+          <NuxtLink
+            v-for="(partner, index) in partners"
+            :key="index"
+            :to="partner.url"
+            class="flex justify-center"
+          >
             <NuxtImg
               :aria-label="partner.name"
               :src="partner.image"
