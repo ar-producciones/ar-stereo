@@ -1,7 +1,7 @@
 <script setup>
-defineComponent({
-  name: "PlayerComponent",
-});
+  defineComponent({
+    name: 'PlayerComponent'
+  })
 </script>
 <template>
   <div class="player">
@@ -13,8 +13,8 @@ defineComponent({
   </div>
 </template>
 <style scoped>
-.player iframe {
-  min-width: 100%;
-  height: 400px;
-}
+  .player iframe {
+    min-width: 100%;
+    height: 400px;
+  }
 </style>

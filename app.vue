@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const layout = "default";
+  const layout = 'default'
 </script>
 <template>
   <NuxtLayout :name="layout">
@@ -7,16 +7,16 @@ const layout = "default";
   </NuxtLayout>
 </template>
 <style>
-html {
-  height: 100%;
-  display: flex;
-}
-body {
-  height: 100%;
-  width: 100%;
-}
+  html {
+    height: 100%;
+    display: flex;
+  }
+  body {
+    height: 100%;
+    width: 100%;
+  }
 
-#__nuxt {
-  height: 100%;
-}
+  #__nuxt {
+    height: 100%;
+  }
 </style>

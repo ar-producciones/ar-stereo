@@ -1,10 +1,10 @@
 <script setup>
-defineProps({
-  lastArticle: {
-    type: Object,
-    default: () => ({}),
-  },
-});
+  defineProps({
+    lastArticle: {
+      type: Object,
+      default: () => ({})
+    }
+  })
 </script>
 <template>
   <section>

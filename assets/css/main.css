@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @tailwind utilities;
 
 :root {
   --font-primary: 'Montserrat';
-  --font-secondary: 'Inter'
+  --font-secondary: 'Inter';
 }
 
 @theme {
@@ -17,13 +17,11 @@
   --color-gold-light: #d0b257;
   --color-gold-extra-light: #dcbe60;
   --color-gold: #daa520;
-  --color-red: #C50000;
+  --color-red: #c50000;
   --color-gray-100: #f1f3f4;
 
   --font-montserrat: 'Montserrat';
-  --font-sans: 'Inter'
-
-
+  --font-sans: 'Inter';
 }
 
 @layer utilities {
@@ -45,8 +43,6 @@
     display: none;
   }
 
-
-
   body {
     font-family: var(--font-primary);
   }
@@ -55,8 +51,6 @@
     font-family: var(--font-primary);
     font-size: theme('fontSize.8xl');
   }
-
-
 
   h2 {
     font-size: theme('fontSize.6xl');

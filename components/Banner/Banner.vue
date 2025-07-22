@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import notiarve from "../../assets/img/noti-ar.png";
+  import notiarve from '../../assets/img/noti-ar.png'
 </script>
 <template>
   <span
@@ -10,12 +10,8 @@ import notiarve from "../../assets/img/noti-ar.png";
     </div>
     <a href="https://www.google.com" target="_blank" class="p-2 mr-5 w-full">
       <div class="hover:cursor-pointer w-full px-2">
-        <h4 class="text-lg italic font-black">
-          Siguenos tambien en Noti AR Ve
-        </h4>
-        <p class="text-sm italic">
-          Enterate en todo momento de lo ultimo tendencia
-        </p>
+        <h4 class="text-lg italic font-black">Siguenos tambien en Noti AR Ve</h4>
+        <p class="text-sm italic">Enterate en todo momento de lo ultimo tendencia</p>
       </div>
     </a>
   </span>

@@ -1,41 +1,38 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router"; // Importar useRouter
-import alfredoRojas from "@/assets/img/alfredo-rojas.png";
-import {
-  BIconFacebook,
-  BIconInstagram,
-  BIconWhatsapp,
-} from "bootstrap-icons-vue";
+  import { useRouter } from 'vue-router' // Importar useRouter
+  import alfredoRojas from '@/assets/img/alfredo-rojas.png'
+  import { BIconFacebook, BIconInstagram, BIconWhatsapp } from 'bootstrap-icons-vue'
+  import { NuxtLink } from '#components'
 
-interface NavigationItem {
-  name: string;
-  href: string;
-  current: boolean; // Ya no usaremos esta propiedad
-}
+  interface NavigationItem {
+    name: string
+    href: string
+    current: boolean // Ya no usaremos esta propiedad
+  }
 
-const router = useRouter(); // Obtener el enrutador
+  const router = useRouter() // Obtener el enrutador
 
-// Define props for the component
-defineProps({
-  navigation: {
-    type: Array as () => NavigationItem[],
-    required: true,
-  },
-  alliedPrograms: {
-    type: Array as () => NavigationItem[],
-    required: true,
-  },
-});
+  // Define props for the component
+  defineProps({
+    navigation: {
+      type: Array as () => NavigationItem[],
+      required: true
+    },
+    alliedPrograms: {
+      type: Array as () => NavigationItem[],
+      required: true
+    }
+  })
 
-// Método para navegar programáticamente
-const navigateTo = (href: string) => {
-  router.push(href); // Navegar a la ruta proporcionada
-};
+  // Método para navegar programáticamente
+  const navigateTo = (href: string) => {
+    router.push(href) // Navegar a la ruta proporcionada
+  }
 
-// Función para verificar si la página es la actual
-const isCurrentPage = (href: string): boolean => {
-  return router.currentRoute.value.path === href;
-};
+  // Función para verificar si la página es la actual
+  const isCurrentPage = (href: string): boolean => {
+    return router.currentRoute.value.path === href
+  }
 </script>
 
 <template>
@@ -45,17 +42,15 @@ const isCurrentPage = (href: string): boolean => {
     >
       <div class="p-4 text-white uppercase">
         <h5 class="font-bold">MENU</h5>
-        <ul class="my-4" v-for="item in navigation" :key="item.name">
+        <ul v-for="item in navigation" :key="item.name" class="my-4">
           <li>
             <!-- Usamos isCurrentPage para determinar si estamos en la página actual -->
             <a
-              @click="navigateTo(item.href)"
               :class="{
-                'hover:text-gold hover:cursor-pointer': !isCurrentPage(
-                  item.href
-                ), // Hover en otros enlaces
-                'text-white': !isCurrentPage(item.href), // Color base para los demás
+                'hover:text-gold hover:cursor-pointer': !isCurrentPage(item.href), // Hover en otros enlaces
+                'text-white': !isCurrentPage(item.href) // Color base para los demás
               }"
+              @click="navigateTo(item.href)"
             >
               {{ item.name }}
             </a>
@@ -107,22 +102,31 @@ const isCurrentPage = (href: string): boolean => {
         class="flex flex-col items-center col-span-1 md:col-span-4 lg:col-span-1 column lg:flex-col-reverse"
       >
         <h5 class="text-center text-white font-extralight">
-          Este producto cuenta con el sello oficial de Alfredo Rojas, símbolo de
-          calidad y excelencia.
+          Este producto cuenta con el sello oficial de Alfredo Rojas, símbolo de calidad y
+          excelencia.
         </h5>
         <div class="flex items-center py-2 mx-2">
-          <img
-            class="w-[150px] lg:w-max-[200px]"
-            :src="alfredoRojas"
-            alt="alfredo-rojas"
-          />
+          <img class="w-[150px] lg:w-max-[200px]" :src="alfredoRojas" alt="alfredo-rojas" />
         </div>
       </div>
     </section>
-    <section class="px-2 bg-black text-gold lg:px-40">
-      <p class="flex justify-center py-6">
-        &copy; {{ new Date().getFullYear() }} AR Stereo &reg;
-      </p>
+    <section class="flex justify-center w-full max-w-screen-xl mx-auto">
+      <div class="flex flex-col gap-2">
+        <p class="text-center text-white">Desarrollado Por</p>
+        <NuxtLink to="https://www.migueljalvarez.com">
+          <NuxtImg
+            src="brand_white_v2.svg"
+            width="260"
+            height="43"
+            alt="Miguel Alvarez"
+            format="webp"
+            loading="lazy"
+          />
+        </NuxtLink>
+      </div>
+    </section>
+    <section class="flex items-center justify-center gap-2 px-2 bg-black text-gold lg:px-40">
+      <p class="flex justify-center py-6">&copy; {{ new Date().getFullYear() }} AR Stereo &reg;</p>
     </section>
   </footer>
 </template>

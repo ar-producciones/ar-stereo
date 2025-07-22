@@ -1,35 +1,47 @@
-export default defineEventHandler((event) => {
-  const team = [
+export default defineEventHandler(_event => {
+  const partners = [
     {
       id: 0,
-      name: "Daenerys Targaryen",
-      image: "https://thronesapi.com/assets/images/daenerys.jpg",
+      name: 'La Postal de Mar del Plata',
+      image: '/partners/lp.webp',
+      url: 'https://lapostaldemardelplata.com/'
     },
     {
       id: 1,
-      name: "Samwell Tarly",
-      image: "https://thronesapi.com/assets/images/sam.jpg",
+      name: 'CR News',
+      image: '/partners/cr-news.webp',
+      url: 'https://crnewsrd.com/'
     },
     {
       id: 2,
-      name: "Jon Snow",
-      image: "https://thronesapi.com/assets/images/jon-snow.jpg",
+      name: 'Cronicas con Nova',
+      image: '/partners/nc.webp',
+      url: 'www.cronicasconnova.com'
     },
     {
       id: 3,
-      name: "Arya Stark",
-      image: "https://thronesapi.com/assets/images/arya-stark.jpg",
+      name: 'Regionarios',
+      image: '/partners/regionarios.webp',
+      url: 'https://revistaregionarios.com/'
     },
     {
       id: 4,
-      name: "Sansa Stark",
-      image: "https://thronesapi.com/assets/images/sansa-stark.jpeg",
+      name: 'El Diario Tricolor',
+      image: '/partners/edt.webp',
+      url: 'https://www.eldiariotricolor.com'
     },
     {
       id: 5,
-      name: "Brandon Stark",
-      image: "https://thronesapi.com/assets/images/bran-stark.jpg",
+      name: 'Bonches Latinos',
+      image: '/partners/bonches_latinos.webp',
+      url: 'https://boncheslatinos.com/'
     },
-  ];
-  return team;
-});
+    {
+      id: 6,
+      name: 'Noticias Nova',
+      image: '/partners/noticias-nova.webp',
+      url: 'https://www.agencianova.com/'
+    }
+  ]
+  return partners
+})
