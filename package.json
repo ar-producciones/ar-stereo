@@ -24,7 +24,7 @@
     "@pinia/nuxt": "^0.6.1",
     "@primevue/nuxt-module": "^4.2.1",
     "@primevue/themes": "^4.2.1",
-    "axios": "^1.11.0",
+    "axios": "^1.13.2",
     "bootstrap-icons-vue": "^1.11.3",
     "html-entities": "^2.5.2",
     "nuxt": "^3.17.7",
