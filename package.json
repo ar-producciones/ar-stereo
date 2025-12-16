@@ -27,7 +27,7 @@
     "axios": "^1.13.2",
     "bootstrap-icons-vue": "^1.11.3",
     "html-entities": "^2.5.2",
-    "nuxt": "^3.17.7",
+    "nuxt": "^3.19.0",
     "nuxt-primevue": "^3.0.0",
     "nuxt-skeleton": "^1.0.1",
     "pinia": "^2.2.5",
